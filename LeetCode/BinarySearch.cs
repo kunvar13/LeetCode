@@ -12,27 +12,29 @@ namespace LeetCode
 
         public int BinaryAlgo(int[] nums, int target)
         {
-            int mid = (nums.Length / 2);
+            int mid;
             int min = 0;
-            int max = 0;
-            while (true)
+            int max = nums.Length - 1;
+            while (min <= max)
             {
-                if (mid < target)
+                mid = max - ((max-min) / 2);
+
+                if (nums[mid] == target)
                 {
-                    min = nums[mid];
-                    max = nums[nums.Length];
+                    return mid;
                 }
 
-                if(mid > target)
+                if (nums[mid] < target)
                 {
-                    min = nums[0];
-                    max = nums[mid];
-
+                    min = mid + 1;
+                } else
+                {
+                    max = mid - 1;
                 }
             }
 
 
-            return 1;
+            return -1;
         }
     }
 }

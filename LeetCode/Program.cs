@@ -8,7 +8,7 @@ namespace LeetCode
         {
             var result = new BinarySearch();
             int[] nums = { -1, 0, 3, 5, 9, 12 };
-            Console.WriteLine(result.BinaryAlgo(nums,9));
+            Console.WriteLine(result.BinaryAlgo(nums,10));
         }
     }
 }
