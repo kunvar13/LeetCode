@@ -24,7 +24,7 @@ namespace LeetCode
                     return mid;
                 }
 
-                if (nums[mid] < target)
+                if (nums[mid] < target) //
                 {
                     min = mid + 1;
                 } else
@@ -36,5 +36,37 @@ namespace LeetCode
 
             return -1;
         }
+
+        public int Sqrt(int num)
+        {
+            int numLeft = 0;
+            int numRight = num;
+            int numMid;
+
+            while (numRight >= numLeft)
+            {
+                numMid = numRight - ((numRight - numLeft) / 2);
+                
+                if ((numMid * numMid) == num)
+                {
+                    return numMid;
+                }
+
+                if (numMid * numMid > num)
+                {
+                    numRight = numMid - 1;
+                }
+
+                else
+                {
+                    numLeft = numMid + 1;
+                }
+
+            }
+
+            return -1;
+
+        }
+        
     }
 }
