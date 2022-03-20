@@ -39,32 +39,44 @@ namespace LeetCode
 
         public int Sqrt(int num)
         {
-            int numLeft = 0;
-            int numRight = num;
-            int numMid;
+           int numLeft = 2;
+           int numRight = num/2;
+           int numMid;
+            long mul;
 
-            while (numRight >= numLeft)
+            if (num < 2)
             {
-                numMid = numRight - ((numRight - numLeft) / 2);
-                
-                if ((numMid * numMid) == num)
-                {
-                    return numMid;
-                }
-
-                if (numMid * numMid > num)
-                {
-                    numRight = numMid - 1;
-                }
-
-                else
-                {
-                    numLeft = numMid + 1;
-                }
-
+                return num;
             }
 
-            return -1;
+                while (numRight >= numLeft)
+                {
+                    numMid = numRight - ((numRight - numLeft) / 2);
+                    mul = (long)numMid * numMid;
+
+                    if (mul == num)
+                    {
+                        return numMid;
+                    }
+
+                    if (mul > num)
+                    {
+                        numRight = numMid - 1;
+                    }
+
+                    else if (mul < num)
+                    {
+                        numLeft = numMid + 1;
+                    }
+
+                    else
+                    {
+                        return numRight;
+                    }  
+
+                } 
+
+            return numRight;
 
         }
         
